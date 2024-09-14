@@ -313,6 +313,10 @@ class Run(val command: String) : IStressCommand {
 
             populateData(plugin, runners, metrics)
 
+            // dump out info about populate
+            println("The number of errors that occurred during the population:${metrics.errors.count}")
+            println("The number of populate: ${metrics.populate.count}")
+
             rateLimiter.rate = rate.toDouble()
 
             metrics.resetErrors()
